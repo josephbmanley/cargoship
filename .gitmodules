@@ -1,0 +1,3 @@
+[submodule "vendor/GodotThings"]
+	path = vendor/GodotThings
+	url = git@github.com:CptPotato/GodotThings.git
