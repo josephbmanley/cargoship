@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sound/voices/welcome_to_galistorm.ogg" type="AudioStream" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends AudioStreamPlayer
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	#pitch_scale = 0.9
+	play()
+	#AudioEffectReverb
+	#pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="VoiceOver" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+bus = "Voice"
+script = SubResource( 1 )

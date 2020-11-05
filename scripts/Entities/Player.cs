@@ -43,7 +43,7 @@ public class Player : Ship
 	{
 		Vector2 movement_input = Vector2.Zero;
 
-		if(Input.IsKeyPressed((int)KeyList.Up))
+		if(Input.IsActionPressed("move_forward"))
 			movement_input = movement_input + new Vector2(0, -move_speed).Rotated(Rotation);
 		
 		return movement_input;
@@ -53,9 +53,9 @@ public class Player : Ship
 	{
 		float rotation_change = 0;
 
-		if(Input.IsKeyPressed((int)KeyList.Right))
+		if(Input.IsActionPressed("rotate_right"))
 			rotation_change += rotation_speed * delta;
-		if(Input.IsKeyPressed((int)KeyList.Left))
+		if(Input.IsActionPressed("rotate_left"))
 			rotation_change -= rotation_speed * delta;
 		
 		return rotation_change;

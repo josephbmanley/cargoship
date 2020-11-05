@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SpaceAdventure.ogg-530af57e9a3ea5e68ab27beb64f2021e.oggstr"
+
+[deps]
+
+source_file="res://music/SpaceAdventure.ogg"
+dest_files=[ "res://.import/SpaceAdventure.ogg-530af57e9a3ea5e68ab27beb64f2021e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

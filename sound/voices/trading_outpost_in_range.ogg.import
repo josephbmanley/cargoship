@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/trading_outpost_in_range.ogg-f3d4354b8e61d81b1c39d21de2200314.oggstr"
+
+[deps]
+
+source_file="res://sound/voices/trading_outpost_in_range.ogg"
+dest_files=[ "res://.import/trading_outpost_in_range.ogg-f3d4354b8e61d81b1c39d21de2200314.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
