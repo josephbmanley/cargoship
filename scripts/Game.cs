@@ -14,20 +14,24 @@ public class Game : Node
 		main = this;
 		Network.Network.main.playerConnected += OnPlayerJoin;
 		Network.Network.main.playerDisconnected += OnPlayerExit;
+
+		// Play music on clients
+		if(!Network.Network.main.IsServer())
+			GetNode<AudioStreamPlayer>("MusicPlayer").Play();
 	}
 
 	public void OnPlayerJoin(object source, ConnectionEventArgs e)
 	{
-		Rpc("SpawnPlayer", e.peerId);
+		Rpc(nameof(SpawnPlayer), e.peerId);
 		foreach (var item in Network.Network.main.state.playerNames)
 		{
-			RpcId(e.peerId, "SpawnPlayer", item.Key);
+			RpcId(e.peerId, nameof(SpawnPlayer), item.Key);
 		}
 	}
 
 	public void OnPlayerExit(object source, ConnectionEventArgs e)
 	{
-		Rpc("UnspawnPlayer", e.peerId);
+		Rpc(nameof(UnspawnPlayer), e.peerId);
 	}
 
 	[RemoteSync]
@@ -41,7 +45,7 @@ public class Game : Node
 	[RemoteSync]
 	public void SpawnPlayer(int peerId)
 	{
-		EmitSignal("PlayerJoinedGame");
+		EmitSignal(nameof(PlayerJoinedGame));
 		Player p = ResourceLoader.Load<PackedScene>("res://nodes/entities/Player.tscn").Instance() as Player;
 		p.Name = peerId.ToString();
 		p.SetNetworkMaster(peerId);

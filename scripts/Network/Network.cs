@@ -15,6 +15,12 @@ namespace Network
         public NetworkedMultiplayerENet peer { get; set; }
         public event EventHandler<ConnectionEventArgs> playerConnected;
         public event EventHandler<ConnectionEventArgs> playerDisconnected;
+        bool isServer = false;
+
+        public bool IsServer()
+        {
+            return isServer;
+        }
 
         public GameState state = new GameState();
         
@@ -27,6 +33,7 @@ namespace Network
 
         public void StartServer(int _max_players = 32)
         {
+            isServer = true;
             max_players = _max_players;
 
             peer = new NetworkedMultiplayerENet();
@@ -49,6 +56,7 @@ namespace Network
 
         public void StartClient(string host = "127.0.0.1")
         {
+            isServer = false;
             peer = new NetworkedMultiplayerENet();
             peer.CreateClient(host, port);
             tree.NetworkPeer = peer;
@@ -85,7 +93,7 @@ namespace Network
         public void ConnectedToServer()
         {
             GD.Print("Connected to server!");
-            Rpc("RegisterPlayer", "Fred");
+            Rpc(nameof(RegisterPlayer), "Fred");
         }
 
         public void ConnectionFailed()
