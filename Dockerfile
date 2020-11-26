@@ -3,15 +3,7 @@ FROM barichello/godot-ci:mono-3.2.3 as builder
 COPY . /build
 WORKDIR /build
 
-RUN wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-RUN dpkg -i packages-microsoft-prod.deb
-
-RUN apt-get update
-RUN apt-get install -y apt-transport-https && \
-        apt-get update && \
-        apt-get install -y dotnet-sdk-5.0
-
-RUN dotnet restore
+RUN nuget restore cargoship.sln
 
 RUN godot --export server /build/cargoship
 
