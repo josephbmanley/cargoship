@@ -12,7 +12,9 @@ FROM barichello/godot-ci:mono-3.2.3 as final
 # Create Runtime User
 RUN useradd -d /cargoship cargoship
 
+ENV DEDICATED_SERVER="true"
+
 # Add pck file
 COPY --from=builder /build/ /cargoship/
 
-CMD /usr/local/bin/godot --main-pack /cargoship/cargoship.pck --empty-server-timeout=300
+CMD /cargoship/cargoship
