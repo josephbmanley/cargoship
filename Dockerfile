@@ -21,6 +21,6 @@ FROM barichello/godot-ci:mono-3.2.3 as final
 RUN useradd -d /cargoship cargoship
 
 # Add pck file
-COPY --from=builder /build/cargoship.pck /cargoship/cargoship.pck
+COPY --from=builder /build/ /cargoship/
 
 CMD /usr/local/bin/godot --main-pack /cargoship/cargoship.pck --empty-server-timeout=300
