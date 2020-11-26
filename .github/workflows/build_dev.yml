@@ -1,0 +1,26 @@
+name: Build Dev
+
+on:
+  push:
+    branches-ignore:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Push Tag to Docker Hub
+        uses: opspresso/action-docker@master
+        with:
+          args: --docker
+        env:
+          USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          BUILD_PATH: "."
+          DOCKERFILE: "Dockerfile"
+          IMAGE_NAME: "josephbmanley/cargoship"
+          TAG_NAME: "dev"
+          LATEST: "false"
