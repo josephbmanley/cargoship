@@ -10,7 +10,7 @@ RUN godot --export server /build/cargoship
 FROM barichello/godot-ci:mono-3.2.3 as final
 
 # Install dependencies
-RUN apt-get install -y libxcursor-dev
+RUN apt install libxcursor-dev
 
 # Create Runtime User
 RUN useradd -d /cargoship cargoship
