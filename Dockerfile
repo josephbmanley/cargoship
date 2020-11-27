@@ -22,4 +22,6 @@ ENV DEDICATED_SERVER="true"
 # Add pck file
 COPY --from=builder /build/ /cargoship/
 
-CMD /cargoship/cargoship --no-window
+WORKDIR /cargoship
+
+CMD /usr/local/bin/godot --main-pck cargoship.pck
