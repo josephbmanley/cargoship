@@ -10,8 +10,8 @@ RUN godot --export server /build/cargoship
 FROM barichello/godot-ci:mono-3.2.3 as final
 
 # Install dependencies
-RUN apt-get update
-RUN apt-get install libx11-dev libxcursor-dev libxinerama-dev libgl1-mesa-dev libglu-dev \
+RUN apt-get --assume-yes update
+RUN apt-get --assume-yes install libx11-dev libxcursor-dev libxinerama-dev libgl1-mesa-dev libglu-dev \
         libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm
 
 # Create Runtime User
