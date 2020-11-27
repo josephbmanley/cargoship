@@ -1,4 +1,4 @@
-FROM barichello/godot-ci:mono-3.2.3 as builder
+FROM barichello/godot-ci:mono-3.2.2 as builder
 
 COPY . /build
 WORKDIR /build
@@ -7,7 +7,7 @@ RUN nuget restore cargoship.sln
 
 RUN godot --export server /build/cargoship
 
-FROM barichello/godot-ci:mono-3.2.3 as final
+FROM barichello/godot-ci:mono-3.2.2 as final
 
 # Install dependencies
 RUN apt-get --assume-yes update
