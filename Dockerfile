@@ -13,7 +13,7 @@ RUN chmod +x dotnet-install.sh; ./dotnet-install.sh
 
 # Install Godot
 RUN wget -q https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/mono/Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64.zip
-RUN unzip Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64.zip; cd Godot_v{GODOT_VERSION}-stable_mono_linux_headless_64; ls -l
+RUN unzip Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64.zip; cd Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64; ls -l
 RUN mv Godot_v${GODOT_VERSION}-stable_mono_linux_server.64 /usr/local/bin/godot \
         chmod +x /usr/local/bin/godot; mv data_Godot_v${GODOT_VERSION}-stable_mono_linux_server_64 /usr/local/bin
 
