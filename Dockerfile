@@ -18,6 +18,8 @@ RUN mv Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64/Godot_v${GODOT_VERS
 RUN chmod +x /usr/local/bin/godot
 RUN mv Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64/GodotSharp /usr/local/bin/GodotSharp
 
+RUN ls -l /usr/local/bin
+
 RUN /usr/local/bin/godot --help
 
 #FROM alpine:3 AS final
