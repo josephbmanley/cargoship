@@ -1,13 +1,12 @@
-FROM centos:8 AS builder
+FROM ubuntu:focal AS builder
 
 ENV GODOT_VERSION="3.2.2"
 
 RUN mkdir /var/config
 WORKDIR /var/config
 
-RUN yum -y install scons pkgconfig libX11-devel libXcursor-devel libXrandr-devel libXinerama-devel \
-    libXi-devel mesa-libGL-devel mesa-libGLU-devel alsa-lib-devel pulseaudio-libs-devel \
-    libudev-devel yasm gcc-c++
+RUN apt-get install build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev \
+    libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm
 
 RUN wget -q https://dot.net/v1/dotnet-install.sh
 RUN chmod +x dotnet-install.sh; ./dotnet-install.sh
