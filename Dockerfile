@@ -16,7 +16,7 @@ RUN wget -q https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/mono/Go
 RUN unzip Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64.zip
 RUN mv Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64/Godot_v${GODOT_VERSION}-stable_mono_linux_headless.64 /usr/local/bin/godot
 RUN chmod +x /usr/local/bin/godot
-RUN mv Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64GodotSharp /usr/local/bin/GodotSharp
+RUN mv Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64/GodotSharp /usr/local/bin/GodotSharp
 
 RUN /usr/local/bin/godot --help
 
