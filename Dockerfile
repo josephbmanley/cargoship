@@ -1,27 +1,8 @@
-FROM barichello/godot-ci:mono-3.2.2 as builder
+FROM alpine:3
 
-COPY . /build
-WORKDIR /build
+RUN apk add scons pkgconf gcc g++ libx11-dev libxcursor-dev libxinerama-dev libxi-dev libxrandr-dev \
+    libexecinfo-dev ca-certificates
 
-RUN nuget restore cargoship.sln
+RUN curl -LO https://curl.haxx.se/ca/cacert.pem; cert-sync --user cacert.pem
 
-RUN godot --export server /build/cargoship
-
-FROM barichello/godot-ci:mono-3.2.2 as final
-
-# Install dependencies
-RUN apt-get --assume-yes update
-RUN apt-get --assume-yes install libx11-dev libxcursor-dev libxinerama-dev libgl1-mesa-dev libglu-dev \
-        libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm
-
-# Create Runtime User
-RUN useradd -d /cargoship cargoship
-
-ENV DEDICATED_SERVER="true"
-
-# Add pck file
-COPY --from=builder /build/ /cargoship/
-
-WORKDIR /cargoship
-
-CMD /usr/local/bin/godot --main-pck cargoship.pck
+RUN wget https://dot.net/v1/dotnet-install.sh; 
