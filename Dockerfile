@@ -20,7 +20,7 @@ RUN mv Godot_v${GODOT_VERSION}-stable_mono_linux_headless_64/GodotSharp /usr/loc
 
 RUN ls -l /usr/local/bin
 
-RUN /usr/local/bin/godot --help
+RUN sh /usr/local/bin/godot --help
 
 #FROM alpine:3 AS final
 
