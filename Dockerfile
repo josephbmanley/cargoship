@@ -4,7 +4,7 @@ ENV GODOT_VERSION="3.2.2"
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y update; apt-get -y install libx11-dev libxcursor-dev libxinerama-dev libgl1-mesa-dev libglu-dev \
-        libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm wget
+        libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm wget unzip
 
 RUN wget -q https://dot.net/v1/dotnet-install.sh
 RUN chmod +x dotnet-install.sh; ./dotnet-install.sh
