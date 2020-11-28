@@ -45,4 +45,4 @@ RUN chmod +x dotnet-install.sh; ./dotnet-install.sh
 
 RUN wget -q https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/mono/Godot_v${GODOT_VERSION}-stable_mono_linux_server_64.zip
 RUN unzip Godot_v${GODOT_VERSION}-stable_mono_linux_server_64.zip
-RUN ls -l
+RUN ls -l Godot_v${GODOT_VERSION}-stable_mono_linux_server_64
