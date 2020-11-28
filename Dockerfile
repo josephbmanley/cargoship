@@ -5,8 +5,8 @@ ENV GODOT_VERSION="3.2.2"
 RUN mkdir /var/config
 WORKDIR /var/config
 
-RUN apt-get install build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev \
-    libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm
+RUN apt-get install libx11-dev libxcursor-dev libxinerama-dev libgl1-mesa-dev libglu-dev \
+        libasound2-dev libpulse-dev libudev-dev libxi-dev libxrandr-dev yasm
 
 RUN wget -q https://dot.net/v1/dotnet-install.sh
 RUN chmod +x dotnet-install.sh; ./dotnet-install.sh
