@@ -3,7 +3,7 @@ FROM alpine:3
 ENV GODOT_VERSION="3.2.2"
 
 RUN apk add scons pkgconf gcc g++ libx11-dev libxcursor-dev libxinerama-dev libxi-dev libxrandr-dev \
-    libexecinfo-dev ca-certificates wget unzip
+    libexecinfo-dev ca-certificates wget unzip bash
 
 RUN wget -q https://dot.net/v1/dotnet-install.sh
 RUN chmod +x dotnet-install.sh; ./dotnet-install.sh
