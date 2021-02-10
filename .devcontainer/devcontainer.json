@@ -1,0 +1,26 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.158.0/containers/debian
+{
+	"name": "Godot Mono",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Debian version: buster, stretch
+		"args": { "VARIANT": "buster" }
+	},
+
+	"containerEnv": {
+		"DISPLAY": ":0" //"${localEnv:DISPLAY}"
+	},
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [],
+	//"mounts": [ "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind" ],
+	"runArgs": [
+		"--net=host"
+	],
+
+	"remoteUser": "vscode"
+}
